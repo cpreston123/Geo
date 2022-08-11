@@ -16,7 +16,6 @@ world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
 
 table = world.merge(table, how='left', left_on=['name'], right_on=['Country'])
 
-table = table.dropna(subset=['kg/person (2002)[9][note 1]'])
 
 my_map = folium.Map(location=[0, 0], zoom_start=2)
 folium.Choropleth(
@@ -28,6 +27,7 @@ folium.Choropleth(
     fill_color="OrRd",
     fill_opacity=0.7,
     line_opacity=0.6,
+    nan_fill_opacity=0.2,
     legend_name="Meat Consumption in kg/person (2002)",
 ).add_to(my_map)
 
