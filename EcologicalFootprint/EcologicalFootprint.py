@@ -1,4 +1,3 @@
-import branca
 import pandas as pd
 import folium
 import geopandas
